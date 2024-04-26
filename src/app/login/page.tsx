@@ -1,7 +1,47 @@
+'use client';
 import Logo from "@/components/auth.logo";
+import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React, { FormEvent, useState } from "react";
 
-function Login() {
+interface ILoginResponse{
+  token?: string;
+  message?: string;
+  errors?: {
+    email?: string[];
+    password?: string[];
+  }
+}
+
+const Login: React.FC = () => {
+
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [errors, setErrors] = useState<{ [key: string]: string[] }>({});
+  const router = useRouter();
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setErrors({});
+
+    try{
+      const response = await axios.post<ILoginResponse>('http://127.0.0.1:8000/api/login', {email, password});
+      localStorage.setItem('token', response.data.token as string)
+      router.push('/');
+    }
+    catch(error: any){
+      if(axios.isAxiosError(error) && error.response){
+        if(error.response.status == 422 && error.response.data){    
+          setErrors(error.response.data.errors);
+        }
+        else{
+          setErrors({'message': [error.response.data.message]})
+        }
+      }
+      
+    }
+  }
 
   return (
     <>
@@ -14,7 +54,8 @@ function Login() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            {errors.message && <div>{errors.message[0]}</div>}
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email
@@ -22,12 +63,12 @@ function Login() {
               <div className="mt-2">
                 <input
                   id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
+                  type="text"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
+                {errors.email && <div>{errors.email[0]}</div>}
               </div>
             </div>
 
@@ -45,12 +86,12 @@ function Login() {
               <div className="mt-2">
                 <input
                   id="password"
-                  name="password"
                   type="password"
-                  autoComplete="current-password"
-                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
+                {errors.password && <div>{errors.password[0]}</div>}
               </div>
             </div>
 
@@ -71,7 +112,7 @@ function Login() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Login
+export default Login;
