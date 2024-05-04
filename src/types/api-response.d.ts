@@ -8,10 +8,10 @@ interface ILogin{
     }
 }
 
-interface IApiResponse{
+interface IApiResponse<T>{
     status: boolean;
     message: string;
-    data?: any;
+    data?: T;
     errors?: any;
 }
 

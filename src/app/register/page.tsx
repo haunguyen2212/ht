@@ -4,7 +4,7 @@ import Alert from "@/components/alert";
 import Logo from "@/components/auth.logo"
 import SubmitButton from "@/components/submit.button";
 import Link from "next/link"
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
 
 const initialState = {
@@ -14,7 +14,14 @@ const initialState = {
 
 const Register: React.FC<IRegisterForm> = ({username, email, password, confirmPassword}) => {
 
-    const [state, formAction] = useFormState<IApiResponse, FormData>(register, initialState);
+    const [state, formAction] = useFormState<IApiResponse<User>, FormData>(register, initialState);
+    const formRef = useRef<HTMLFormElement>(null);
+
+    useEffect(() => {
+        if(state.status){
+            formRef.current?.reset();
+        }
+    }, [state]);
 
     return (
         <>
@@ -26,8 +33,8 @@ const Register: React.FC<IRegisterForm> = ({username, email, password, confirmPa
                     </h2>
                 </div>
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6" method="POST" action={formAction}>
-                        {state?.message && <Alert color="green" message={state?.message} />}
+                    <form className="space-y-6" ref={formRef} action={formAction}>
+                        {state?.status && state?.message && <Alert color="blue" message={state?.message} />}
                         <div>
                             <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
                                 Tên tài khoản

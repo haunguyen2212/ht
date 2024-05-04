@@ -36,9 +36,9 @@ export async function login(prevState: ILogin, formData: FormData): Promise<ILog
   }
 }
 
-export async function register(prevState: IApiResponse, formData: FormData): Promise<IApiResponse> {
+export async function register(prevState: IApiResponse<User>, formData: FormData): Promise<IApiResponse<User>> {
   try{
-    const response = await axios.post<IApiResponse>(`${API_URL}/register`, formData);
+    const response = await axios.post<IApiResponse<User>>(`${API_URL}/register`, formData);
     return {
       message: response.data.message,
       status: true,
@@ -47,7 +47,7 @@ export async function register(prevState: IApiResponse, formData: FormData): Pro
   }
   catch(error: any){
     if(axios.isAxiosError(error) && error.response){
-      const errorData : IApiResponse = error.response.data;
+      const errorData : IApiResponse<User> = error.response.data;
       if(error.response.status == 422 && errorData){
         return {
           message: errorData.message,

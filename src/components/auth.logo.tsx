@@ -1,6 +1,7 @@
+import React from "react";
 import Image from "next/image";
 
-function Logo(){
+const Logo: React.FC = () => {
     return (
         <Image
             className="mx-auto"

@@ -1,5 +1,6 @@
 'use client';
 import { login } from "@/actions/auth";
+import Alert from "@/components/alert";
 import Logo from "@/components/auth.logo";
 import SubmitButton from "@/components/submit.button";
 import Link from "next/link";
@@ -36,7 +37,7 @@ const Login: React.FC<ILoginForm> = ({email, password}) => {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action={formAction}>
-            {state?.message && !state?.errors && <div>{state?.message}</div>}
+            {state?.message && !state?.errors && <Alert color="red" message={state?.message} />}
             <div>
               <label htmlFor="email" className="block text-sm font-bold leading-6 text-gray-900">
                 Email
