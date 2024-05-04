@@ -1,47 +1,28 @@
 'use client';
+import { login } from "@/actions/auth";
 import Logo from "@/components/auth.logo";
-import axios from "axios";
+import SubmitButton from "@/components/submit.button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { FormEvent, useState } from "react";
+import React, { useEffect } from "react";
+import { useFormState } from "react-dom";
 
-interface ILoginResponse{
-  token?: string;
-  message?: string;
-  errors?: {
-    email?: string[];
-    password?: string[];
-  }
+const initialState = {
+  status: false, 
+  message: '',
 }
 
-const Login: React.FC = () => {
+const Login: React.FC<ILoginForm> = ({email, password}) => {
 
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [errors, setErrors] = useState<{ [key: string]: string[] }>({});
+  const [state, formAction] = useFormState<ILogin, FormData>(login, initialState);
   const router = useRouter();
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setErrors({});
-
-    try{
-      const response = await axios.post<ILoginResponse>('http://127.0.0.1:8000/api/login', {email, password});
-      localStorage.setItem('token', response.data.token as string)
+  useEffect (() => {
+    if(state.status){
+      localStorage.setItem('token', state.token as string);
       router.push('/');
     }
-    catch(error: any){
-      if(axios.isAxiosError(error) && error.response){
-        if(error.response.status == 422 && error.response.data){    
-          setErrors(error.response.data.errors);
-        }
-        else{
-          setErrors({'message': [error.response.data.message]})
-        }
-      }
-      
-    }
-  }
+  }, [state, router])
 
   return (
     <>
@@ -54,27 +35,26 @@ const Login: React.FC = () => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            {errors.message && <div>{errors.message[0]}</div>}
+          <form className="space-y-6" action={formAction}>
+            {state?.message && !state?.errors && <div>{state?.message}</div>}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+              <label htmlFor="email" className="block text-sm font-bold leading-6 text-gray-900">
                 Email
               </label>
               <div className="mt-2">
                 <input
-                  id="email"
                   type="text"
+                  name="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                   className="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
-                {errors.email && <div>{errors.email[0]}</div>}
+                {state?.errors?.email && <span className="text-sm font-bold text-red-500 mt-1">{state?.errors?.email[0]}</span>}
               </div>
             </div>
 
             <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="password" className="block text-sm font-bold leading-6 text-gray-900">
                   Mật khẩu
                 </label>
                 <div className="text-sm">
@@ -85,23 +65,17 @@ const Login: React.FC = () => {
               </div>
               <div className="mt-2">
                 <input
-                  id="password"
                   type="password"
+                  name="password"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
                   className="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
-                {errors.password && <div>{errors.password[0]}</div>}
+                {state?.errors?.password && <span className="text-sm font-bold text-red-500 mt-1">{state?.errors?.password[0]}</span>}
               </div>
             </div>
 
             <div>
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Đăng nhập
-              </button>
+              <SubmitButton color="indigo">Đăng nhập</SubmitButton>
             </div>
           </form>
 

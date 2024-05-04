@@ -1,7 +1,20 @@
+'use client';
+import { register } from "@/actions/auth";
+import Alert from "@/components/alert";
 import Logo from "@/components/auth.logo"
+import SubmitButton from "@/components/submit.button";
 import Link from "next/link"
+import React from "react";
+import { useFormState } from "react-dom";
 
-function Register(){
+const initialState = {
+    status: false, 
+    message: '',
+}
+
+const Register: React.FC<IRegisterForm> = ({username, email, password, confirmPassword}) => {
+
+    const [state, formAction] = useFormState<IApiResponse, FormData>(register, initialState);
 
     return (
         <>
@@ -13,19 +26,20 @@ function Register(){
                     </h2>
                 </div>
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6" action="#" method="POST">
+                    <form className="space-y-6" method="POST" action={formAction}>
+                        {state?.message && <Alert color="green" message={state?.message} />}
                         <div>
                             <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
                                 Tên tài khoản
                             </label>
                             <div className="mt-2">
                                 <input
-                                id="username"
+                                type="text"
                                 name="username"
-                                type="username"
-                                autoComplete="username"
+                                value={username}
                                 className="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {state?.errors?.username && <span className="text-sm font-bold text-red-500 mt-1">{state?.errors?.username[0]}</span>}
                             </div>
                         </div>
                         <div>
@@ -34,12 +48,12 @@ function Register(){
                             </label>
                             <div className="mt-2">
                                 <input
-                                id="email"
+                                type="text"
                                 name="email"
-                                type="email"
-                                autoComplete="email"
+                                value={email}
                                 className="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {state?.errors?.email && <span className="text-sm font-bold text-red-500 mt-1">{state?.errors?.email[0]}</span>}
                             </div>
                         </div>
 
@@ -49,12 +63,12 @@ function Register(){
                             </label>
                             <div className="mt-2">
                                 <input
-                                id="password"
-                                name="password"
                                 type="password"
-                                autoComplete="current-password"
+                                name="password"
+                                value={password}
                                 className="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {state?.errors?.password && <span className="text-sm font-bold text-red-500 mt-1">{state?.errors?.password[0]}</span>}
                             </div>
                         </div>
 
@@ -64,20 +78,16 @@ function Register(){
                             </label>
                             <div className="mt-2">
                                 <input
-                                id="confirm-password"
-                                name="confirm-password"
-                                type="confirm-password"
+                                type="password"
+                                name="confirmPassword"
+                                value={confirmPassword}
                                 className="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+                                {state?.errors?.confirmPassword && <span className="text-sm font-bold text-red-500 mt-1">{state?.errors?.confirmPassword[0]}</span>}
                             </div>
                         </div>
                         <div>
-                            <button
-                                type="submit"
-                                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                            >
-                                Đăng kí
-                            </button>
+                            <SubmitButton color="indigo">Đăng ký</SubmitButton>
                         </div>
                     </form>
 
