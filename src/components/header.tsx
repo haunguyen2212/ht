@@ -1,16 +1,18 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Header: React.FC = () => {
     return (
-        <nav className="bg-white border-gray-200 dark:bg-gray-900">
-            <div className="w-full flex flex-wrap items-center justify-between mx-auto p-8">
-                <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <Image width={100} height={100} src="/logo.png" className="w-14 h-8" alt="Logo" />
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">HT BLOG</span>
-                </a>
+        <nav className="w-full fixed z-50 bg-white border-gray-200 dark:bg-gray-900">
+            <div className="flex flex-wrap items-center justify-between mx-auto p-4 xl:py-6 xl:px-16">
+                <Link href="/" className="flex items-center space-x-1 rtl:space-x-reverse">
+                    <Image width={100} height={100} src="/logo.png" className="w-16 h-10" alt="Logo" />
+                    <span className="hidden md:block self-center text-2xl font-semibold whitespace-nowrap dark:text-white">HT BLOG</span>
+                </Link>
                 <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                    <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                    <Link href={'/login'} className="text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-full text-sm px-4 py-2 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700">Đăng nhập</Link>
+                    <button className="hidden flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                         <span className="sr-only">Open user menu</span>
                         <Image width={100} height={100} className="w-8 h-8 rounded-full" src="/profile-picture-3.jpg" alt="user photo" />
                     </button>
@@ -44,19 +46,16 @@ const Header: React.FC = () => {
                 <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
                     <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <li>
-                            <a href="#" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
+                            <a href="#" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Trang chủ</a>
                         </li>
                         <li>
-                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Danh mục</a>
                         </li>
                         <li>
-                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Bài Viết</a>
                         </li>
                         <li>
-                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Pricing</a>
-                        </li>
-                        <li>
-                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Liên Hệ</a>
                         </li>
                     </ul>
                 </div>
