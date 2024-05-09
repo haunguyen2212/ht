@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       <Header />
-      <main className="w-full pt-20">{children}</main>
+      <main className="w-full pt-12">{children}</main>
       <Footer />
     </div>
   );

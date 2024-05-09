@@ -1,30 +1,38 @@
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Banner: React.FC = () => {
     return (
-        <section className="bg-white dark:bg-gray-900">
-            <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
-                <a href="#" className="inline-flex justify-between items-center py-1 px-1 pe-4 mb-7 text-sm text-blue-700 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800">
-                    <span className="text-xs bg-blue-600 rounded-full text-white px-4 py-1.5 me-3">New</span> <span className="text-sm font-medium">Jumbotron component was launched! See whats new</span> 
-                    <svg className="w-2.5 h-2.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4"/>
-                    </svg>
-                </a>
-                <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">We invest in the world’s potential</h1>
-                <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
-                <form className="w-full max-w-md mx-auto">   
-                    <label htmlFor="default-email" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Email sign-up</label>
-                    <div className="relative">
-                        <div className="absolute inset-y-0 rtl:inset-x-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                            <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                            </svg>
+        <section className="sm:mt-6 lg:mt-8 mt-12 w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="my-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 flex gap-3 lg:flex-justify lg:flex flex-col lg:flex-row">
+                <div className="sm:text-center lg:text-left">
+                    <h1 className="text-4xl tracking-tight font-extrabold text-gray-800 sm:text-5xl md:text-6xl">
+                        <span className="block text-current xl:inline dark:text-white">Khám phá tiềm năng </span>
+                        <span className="block text-indigo-600 xl:inline">công nghệ</span>
+                    </h1>
+                    <p
+                        className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 dark:text-white">
+                        Cùng nhau khám phá những giới hạn mới với công nghệ, nơi sự sáng tạo không bao giờ ngừng. Khơi dậy niềm đam mê, mở ra cánh cửa dẫn đến tương lai, và không ngừng đổi mới để hiện thực hóa tiềm năng vô hạn.
+                    </p>
+                    <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                        <div className="rounded-md shadow">
+                            <Link href={'/'}
+                                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-600 md:py-4 md:text-lg md:px-10 dark:bg-gray-300 dark:hover:bg-gray-100 dark:text-black">
+                                Khám phá
+                            </Link>
                         </div>
-                        <input type="email" id="default-email" className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your email here..." required />
-                        <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign up</button>
+                        <div className="mt-3 sm:mt-0 sm:ml-3">
+                            <Link href={'/'}
+                                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-800 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:text-white">
+                                Liên hệ
+                            </Link>
+                        </div>
                     </div>
-                </form>
+                </div>
+                <div className="lg:inset-y-0 lg:right-0 lg:w-1/2 my-4">
+                    <Image width={100} height={100} className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="/banner.avif" alt="" />
+                </div>
             </div>
         </section>
     );
