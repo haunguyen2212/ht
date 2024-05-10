@@ -4,10 +4,11 @@ import Image from "next/image";
 const Logo: React.FC = () => {
     return (
         <Image
-            className="mx-auto"
+            className="mx-auto w-[100px] h-auto"
             src="/logo.png"
-            width={100}
-            height={100}
+            width={0}
+            height={0}
+            sizes="100vw"
             alt="Logo"
             priority
           />

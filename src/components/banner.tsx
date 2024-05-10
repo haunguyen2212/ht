@@ -9,7 +9,7 @@ const Banner: React.FC = () => {
                 <div className="sm:text-center lg:text-left">
                     <h1 className="text-4xl tracking-tight font-extrabold text-gray-800 sm:text-5xl md:text-6xl">
                         <span className="block text-current xl:inline dark:text-white">Khám phá tiềm năng </span>
-                        <span className="block text-indigo-600 xl:inline">công nghệ</span>
+                        <span className="block text-indigo-600 xl:inline dark:text-indigo-400">công nghệ</span>
                     </h1>
                     <p
                         className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 dark:text-white">
@@ -31,7 +31,7 @@ const Banner: React.FC = () => {
                     </div>
                 </div>
                 <div className="lg:inset-y-0 lg:right-0 lg:w-1/2 my-4">
-                    <Image width={100} height={100} className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="/banner.avif" alt="" />
+                    <Image width={0} height={0} sizes="100vw" className="h-56 w-full object-cover rounded-lg sm:h-72 md:h-96 lg:w-full lg:h-full" src="/image.jpg" alt="" priority />
                 </div>
             </div>
         </section>

@@ -1,12 +1,22 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const PostFeatured: React.FC = () => {
     return (
         <div className="max-w-7xl mx-auto my-8 px-2 xl:mt-20">
-            <div className="flex justify-center text-2xl md:text-3xl font-bold dark:text-white">
-                Bài Viết Nổi Bật
+            <div className="flex justify-between font-bold dark:text-white">
+                <span className="text-indigo-600 dark:text-indigo-400">Bài viết nổi bật</span>
+                <Link href={'/'} className="flex items-center text-indigo-600 gap-1 inline-flex items-center dark:text-indigo-400">
+                    <span>
+                        Xem tất cả
+                    </span>
+                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                        viewBox="0 0 24 24" className="w-6 h-6 ml-2">
+                        <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </Link>
             </div>
-            <ul className="lg:gap-16 sm:gap-8 grid grid-cols-12 col-span-10 col-start-2 gap-6 mt-8">
+            <ul className="lg:gap-16 sm:gap-8 grid grid-cols-12 col-span-10 col-start-2 gap-6 mt-4">
                 <li className="mb-6 md:md-0 col-span-12 sm:col-span-6 lg:col-span-4">
                     <a href="#" >
                         <Image width={100} height={100} src="/featured1.jpg" className="w-full mb-4 rounded-lg shadow-none transition transition-shadow duration-500 ease-in-out group-hover:shadow-lg" alt="laravel9-1646792144.jpg"/>
