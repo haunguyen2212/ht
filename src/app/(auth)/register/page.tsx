@@ -28,7 +28,7 @@ const Register: React.FC<IRegisterForm> = ({username, email, password, confirmPa
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <Logo></Logo>
-                    <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                    <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-white">
                         Đăng kí tài khoản
                     </h2>
                 </div>
@@ -36,7 +36,7 @@ const Register: React.FC<IRegisterForm> = ({username, email, password, confirmPa
                     <form className="space-y-6" ref={formRef} action={formAction}>
                         {state?.status && state?.message && <Alert color="blue" message={state?.message} />}
                         <div>
-                            <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                                 Tên tài khoản
                             </label>
                             <div className="mt-2">
@@ -50,7 +50,7 @@ const Register: React.FC<IRegisterForm> = ({username, email, password, confirmPa
                             </div>
                         </div>
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                                 Email
                             </label>
                             <div className="mt-2">
@@ -65,7 +65,7 @@ const Register: React.FC<IRegisterForm> = ({username, email, password, confirmPa
                         </div>
 
                         <div>
-                            <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                             Mật khẩu
                             </label>
                             <div className="mt-2">
@@ -80,7 +80,7 @@ const Register: React.FC<IRegisterForm> = ({username, email, password, confirmPa
                         </div>
 
                         <div>
-                            <label htmlFor="confirm-password" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="confirm-password" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                             Nhập lại mật khẩu
                             </label>
                             <div className="mt-2">

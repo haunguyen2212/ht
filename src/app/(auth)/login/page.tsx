@@ -30,7 +30,7 @@ const Login: React.FC<ILoginForm> = ({email, password}) => {
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <Logo></Logo>
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-white">
             Đăng nhập hệ thống
           </h2>
         </div>
@@ -39,7 +39,7 @@ const Login: React.FC<ILoginForm> = ({email, password}) => {
           <form className="space-y-6" action={formAction}>
             {state?.message && !state?.errors && <Alert color="red" message={state?.message} />}
             <div>
-              <label htmlFor="email" className="block text-sm font-bold leading-6 text-gray-900">
+              <label htmlFor="email" className="block text-sm font-bold leading-6 text-gray-900 dark:text-white">
                 Email
               </label>
               <div className="mt-2">
@@ -55,7 +55,7 @@ const Login: React.FC<ILoginForm> = ({email, password}) => {
 
             <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-bold leading-6 text-gray-900">
+                <label htmlFor="password" className="block text-sm font-bold leading-6 text-gray-900 dark:text-white">
                   Mật khẩu
                 </label>
                 <div className="text-sm">
