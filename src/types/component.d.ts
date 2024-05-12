@@ -4,6 +4,10 @@ interface IPropAlert {
 }
 
 interface IPropSubmitButton{
-    color: 'indigo',
-    children: ReactNode,
+    color: 'indigo';
+    children: ReactNode;
+}
+
+interface IPropFeaturedPost {
+    data: FeaturedPost;
 }

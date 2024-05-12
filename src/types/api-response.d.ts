@@ -19,3 +19,25 @@ interface User {
     username: string;
     email: string;
 }
+
+interface IHome{
+    message: string;
+    data: {
+        featured_posts: FeaturedPost[];
+    } 
+}
+
+interface FeaturedPost{
+    id: number;
+    title: string;
+    excerpt: string;
+    image: string;
+    category_id: number;
+    order: number;
+    tags: Tag[];
+}
+
+interface Tag{
+    id: number;
+    name: string;
+}
