@@ -20,13 +20,15 @@ interface User {
     email: string;
 }
 
-interface IHome{
+interface IList<T>{
     message: string;
-    data: {
-        featured_posts: FeaturedPost[];
-    } 
+    data: T[];
 }
 
+interface IDetail<T>{
+    message: string;
+    data: T;
+}
 interface FeaturedPost{
     id: number;
     title: string;

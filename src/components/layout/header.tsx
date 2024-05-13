@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import DarkModeButton from "./dark-mode.button";
+import DarkModeButton from "../dark-mode.button";
 
 const Header: React.FC = () => {
 

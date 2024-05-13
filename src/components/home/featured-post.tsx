@@ -5,7 +5,7 @@ import Link from "next/link";
 const FeaturedPost: React.FC<IPropFeaturedPost> = ({data}) => {
     return (
         <li className="mb-6 md:md-0 col-span-12 sm:col-span-6 lg:col-span-4">
-            <Image width={0} height={0} sizes="100vw" src="/featured1.jpg" className="w-full mb-4 rounded-lg shadow-none transition transition-shadow duration-500 ease-in-out group-hover:shadow-lg" alt="laravel9-1646792144.jpg"/>
+            <Image width={0} height={0} sizes="100vw" src="/featured1.jpg" className="w-full h-60 mb-4 rounded-lg shadow-none transition transition-shadow duration-500 ease-in-out group-hover:shadow-lg" alt="laravel9-1646792144.jpg" priority />
             <div className="flex items-center mb-3">
                 <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-bold leading-5 text-white font-display mr-2 capitalize bg-red-500" >
                     Hot
