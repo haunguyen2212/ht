@@ -47,7 +47,7 @@ const FeaturedList: React.FC = () => {
                     ? 
                     <><FeaturedSkeleton /><FeaturedSkeleton /><FeaturedSkeleton /></> 
                     : 
-                    featuredPost.map(item => (
+                    featuredPost?.map(item => (
                         <FeaturedPost key={item.id} data={item} />
                     ))
                 }

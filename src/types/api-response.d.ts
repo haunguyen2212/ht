@@ -36,6 +36,8 @@ interface FeaturedPost{
     image: string;
     category_id: number;
     order: number;
+    publish_date_from: string;
+    publish_date_to: string;
     tags: Tag[];
 }
 

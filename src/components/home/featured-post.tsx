@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { formatDateToString } from "@/utils/date-utils";
 
 const FeaturedPost: React.FC<IPropFeaturedPost> = ({data}) => {
     return (
@@ -10,19 +11,21 @@ const FeaturedPost: React.FC<IPropFeaturedPost> = ({data}) => {
                 <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-bold leading-5 text-white font-display mr-2 capitalize bg-red-500" >
                     Hot
                 </span>
-                <p className="font-mono text-xs font-normal opacity-75 text-black dark:text-white">September 28th, 2022</p>
+                <p className="font-mono text-xs font-normal opacity-75 text-black dark:text-white">
+                    { formatDateToString(data?.publish_date_from) }
+                </p>
             </div>
             <p className="font-display max-w-sm text-2xl font-bold leading-tight mb-1">
                 <span className="link-underline link-underline-black text-black dark:text-white">
-                    {data.title}
+                    {data?.title}
                 </span>
             </p>
             <p className="text-gray-600 three-lines mb-3 dark:text-white">
-                {data.excerpt}
+                {data?.excerpt}
             </p>
             <div className="flex flex-wrap gap-2">
                 {
-                    data.tags.map(tag => (
+                    data?.tags.map(tag => (
                         <Link key={tag.id} href={'/'} className="bg-gray-300/30 hover:bg-gray-400/30 py-1 px-2 rounded-lg text-xs dark:bg-gray-700/90 hover:dark:bg-gray-600/90">{tag.name}</Link>
                     ))
                 }
