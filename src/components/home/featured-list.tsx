@@ -8,12 +8,12 @@ import FeaturedSkeleton from "./featured-skeleton";
 
 const FeaturedList: React.FC = () => {
 
-    const [featuredPost, setFeaturedPost] = useState<Array<FeaturedPost>>([]);
+    const [featuredPost, setFeaturedPost] = useState<Array<Post>>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
     const getData = async () => {
         try{
-          const res = await axios.get<IList<FeaturedPost>>(`${API_URL}/featured-post/`);
+          const res = await axios.get<IList<Post>>(`${API_URL}/featured-post/`);
           setFeaturedPost(res.data.data);
           setLoading(false);
         }
@@ -27,8 +27,8 @@ const FeaturedList: React.FC = () => {
     }, []);
 
     return (
-        <section className="sm:mt-6 lg:mt-8 mt-12 w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="my-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+        <section className="mt-2 md:mt-8 mt-12 w-full mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="my-2 md:my-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
               <div className="flex justify-between font-bold dark:text-white">
                   <span className="text-indigo-600 dark:text-indigo-400">Bài viết nổi bật</span>
                   <Link href={'/'} className="flex items-center text-indigo-600 gap-1 inline-flex items-center dark:text-indigo-400">

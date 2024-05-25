@@ -9,5 +9,5 @@ interface IPropSubmitButton{
 }
 
 interface IPropFeaturedPost {
-    data: FeaturedPost;
+    data: Post;
 }
