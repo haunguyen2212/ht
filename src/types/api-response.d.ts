@@ -40,6 +40,7 @@ interface Post{
     publish_date_from: string;
     publish_date_to: string;
     categories: Category;
+    author: Author;
     tags: Tag[];
 }
 
@@ -51,4 +52,9 @@ interface Category{
 interface Tag{
     id: number;
     name: string;
+}
+
+interface Author{
+    id: number;
+    username: string;
 }

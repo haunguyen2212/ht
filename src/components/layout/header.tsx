@@ -15,7 +15,7 @@ const Header: React.FC = () => {
             <div className="flex flex-wrap items-center justify-between mx-auto p-4 xl:py-6 xl:px-16">
                 <Link href="/" className="flex items-center space-x-1 rtl:space-x-reverse">
                     <Image width={100} height={100} src="/logo.png" className="w-16 h-10" alt="Logo" />
-                    <span className="hidden md:block self-center text-2xl font-semibold whitespace-nowrap dark:text-white">HT BLOG</span>
+                    <span className="hidden md:block self-center text-2xl font-bold whitespace-nowrap dark:text-white">HT BLOG</span>
                 </Link>
                 <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                     <DarkModeButton />
