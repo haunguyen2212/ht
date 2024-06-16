@@ -5,7 +5,8 @@ interface ILogin{
     errors?: {
       email?: string[];
       password?: string[];
-    }
+    };
+    user?: User;
 }
 
 interface IApiResponse<T>{
@@ -34,6 +35,7 @@ interface Post{
     title: string;
     slug: string;
     excerpt: string;
+    content: string;
     image: string;
     category_id: number;
     order: number;
@@ -57,4 +59,9 @@ interface Tag{
 interface Author{
     id: number;
     username: string;
+}
+
+interface AuthContextType {
+    user: User | null;
+    setUser: (user: User | null) => void;
 }

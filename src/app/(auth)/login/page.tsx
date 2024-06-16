@@ -21,6 +21,7 @@ const Login: React.FC<ILoginForm> = ({email, password}) => {
   useEffect (() => {
     if(state.status){
       localStorage.setItem('token', state.token as string);
+      localStorage.setItem('user', JSON.stringify(state.user));
       router.push('/');
     }
   }, [state, router])

@@ -11,3 +11,7 @@ interface IPropSubmitButton{
 interface IPropFeaturedPost {
     data: Post;
 }
+
+interface IPropUserButton {
+    user?: User;
+}

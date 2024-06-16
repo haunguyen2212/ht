@@ -4,6 +4,7 @@ import 'flowbite/dist/flowbite.css';
 import "../globals.css";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +19,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      <Header />
-      <main className="w-full pt-12">{children}</main>
-      <Footer />
-    </div>
+    <AuthProvider>
+      <div className="min-h-screen bg-white dark:bg-gray-900">
+        <Header />
+        <main className="w-full pt-12">{children}</main>
+        <Footer />
+      </div>
+    </AuthProvider>
+    
   );
 }

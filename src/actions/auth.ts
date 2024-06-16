@@ -8,6 +8,7 @@ export async function login(prevState: ILogin, formData: FormData): Promise<ILog
     const response = await axios.post<ILogin>(`${API_URL}/login`, formData);
     return {
       token: response.data.token,
+      user: response.data.user,
       status: true,
       message: 'Đăng nhập thành công',
     }

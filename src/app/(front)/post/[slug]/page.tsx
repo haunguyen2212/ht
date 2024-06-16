@@ -64,43 +64,22 @@ const Post: React.FC< { params: { slug: string } }> = ({ params }) => {
                         </blockquote>
 
                         <div className="my-5" id="post-content">
-                            <h3 className="text-2xl font-bold">#1. What is Lorem Ipsum?</h3>
-                            <p className="text-base leading-8 my-5">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                                and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                                leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </p>
-
-                            <blockquote className="text-md italic leading-8 my-5 p-5 text-indigo-600 font-semibold">Lorem Ipsum is
-                                simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry
-                                standard dummy text ever since the 1500s</blockquote>
-
-                            <p className="text-base leading-8 my-5">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                                and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                                leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </p>
-                            {
-                                post?.tags.map((tag, index) => (
-                                    <span key={index}>
-                                        <Link href="#" className="text-sm text-indigo-600 font-medium hover:text-indigo-800 transition duration-500 ease-in-out dark:text-indigo-400">
-                                            #{tag.name}
-                                        </Link>
-                                        {index !== post.tags.length - 1 ? ', ' : '.'}
-                                    </span>
-                                    
-                                )
-                            )}
-                        </div>
-                        
+                            <div dangerouslySetInnerHTML={{ __html: post?.content || '' }}></div>
+                            <div className="mt-5">
+                                {
+                                    post?.tags.map((tag, index) => (
+                                        <span key={index}>
+                                            <Link href="#" className="text-sm text-indigo-600 font-medium hover:text-indigo-800 transition duration-500 ease-in-out dark:text-indigo-400">
+                                                #{tag.name}
+                                            </Link>
+                                            {index !== post.tags.length - 1 ? ', ' : '.'}
+                                        </span>
+                                        
+                                    )
+                                )}
+                            </div>  
+                        </div>       
                     </div>
-
                 </div>
             </div>
         </div>
