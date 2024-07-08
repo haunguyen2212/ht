@@ -15,3 +15,7 @@ interface IPropFeaturedPost {
 interface IPropUserButton {
     user?: User;
 }
+
+interface IPropPost {
+    slug: string;
+}

@@ -23,3 +23,19 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+#post-content p {
+  display: block;
+  margin: 1em 0 !important;
+}
+
+#post-content ul{
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  unicode-bidi: isolate;
+}

@@ -1,11 +1,24 @@
-import React from "react";
+'use client';
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 const AuthButton: React.FC<IPropUserButton> = (props) => {
 
+    const [loading, setLoading] = useState(true);
+
     const handleToggle = () => {
         document.getElementById('dropdownAvatarName')?.classList.toggle('hidden');
+    }
+
+    useEffect(() => {
+        setLoading(false);
+    }, []);
+
+    if(loading){
+        return (
+            <div className="w-8 md:w-36 h-[32px] bg-gray-100 dark:bg-gray-700 ring-4 ring-gray-100 dark:ring-gray-700 rounded-full"></div>
+        );
     }
     
     if(!props.user){
@@ -22,7 +35,7 @@ const AuthButton: React.FC<IPropUserButton> = (props) => {
 
     return (
         <div className="relative">
-            <button onClick={handleToggle} data-dropdown-toggle="dropdownAvatarName" className="w-36 flex items-center text-sm pe-1 font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:me-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white" type="button">
+            <button onClick={handleToggle} data-dropdown-toggle="dropdownAvatarName" className="w-8 md:w-36 flex items-center text-sm pe-0 md:pe-1 font-medium text-gray-900 rounded-full dark:hover:text-blue-500 md:me-0 ring-gray-100 dark:ring-gray-700 ring-4 bg-gray-100 dark:bg-gray-700 dark:text-white" type="button">
                 <span className="sr-only">Open user menu</span>
                 <Image width={100} height={100} className="w-8 h-8 me-2 rounded-full" src="/profile-picture-3.jpg" alt="user photo" />
                 <span className="hidden md:inline-block px-1">{props.user?.username}</span>
