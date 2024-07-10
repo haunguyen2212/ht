@@ -3,6 +3,10 @@ interface IPropAlert {
     message: string;
 }
 
+interface IPropIcon {
+    classAdded?: string;
+}
+
 interface IPropSubmitButton{
     color: 'indigo';
     children: ReactNode;

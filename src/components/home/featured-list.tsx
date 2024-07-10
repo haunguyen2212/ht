@@ -5,6 +5,7 @@ import FeaturedPost from "@/components/home/featured-post";
 import axios from "axios";
 import { API_URL } from "@/utils/config";
 import FeaturedSkeleton from "./featured-skeleton";
+import ArrowRightIcon from "../icon/arrow-right";
 
 const FeaturedList: React.FC = () => {
 
@@ -35,10 +36,7 @@ const FeaturedList: React.FC = () => {
                       <span>
                           Xem tất cả
                       </span>
-                      <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                          viewBox="0 0 24 24" className="w-6 h-6 ml-2">
-                          <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                      </svg>
+                      <ArrowRightIcon classAdded="w-6 h-6 ml-2" />
                   </Link>
               </div>
               <ul className="lg:gap-16 sm:gap-8 grid grid-cols-12 col-span-10 col-start-2 gap-6 mt-4">
