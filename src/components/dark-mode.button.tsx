@@ -15,20 +15,20 @@ const DarkModeButton: React.FC = () => {
 
     if(!mounted){
         return (
-            <button className="h-12 w-12 rounded-lg p-2 mx-1 md:mx-2 hover:bg-gray-100 dark:hover:bg-gray-700"> 
+            <button className="h-[40px] w-12 rounded-lg p-2 mx-1 md:mx-2 hover:bg-gray-100 dark:hover:bg-gray-700"> 
             </button>
         );
     }
 
     if(resolvedTheme === 'dark'){
         return (
-            <button onClick={() => setTheme('light')} className="h-12 w-12 rounded-lg p-2 mx-1 md:mx-2 hover:bg-gray-100 dark:hover:bg-gray-700">  
+            <button onClick={() => setTheme('light')} className="h-[40px] w-12 flex items-center rounded-lg p-2 mx-1 md:mx-2 hover:bg-gray-100 dark:hover:bg-gray-700">  
                 <DarkModeIcon classAdded="fill-white block" />
             </button>
         );
     }else{
         return (
-            <button onClick={() => setTheme('dark')} className="h-12 w-12 rounded-lg p-2 mx-1 md:mx-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+            <button onClick={() => setTheme('dark')} className="h-[40px] w-12 flex items-center rounded-lg p-2 mx-1 md:mx-2 hover:bg-gray-100 dark:hover:bg-gray-700">
                 <LightModeIcon classAdded="fill-indigo-700 block" /> 
             </button>
         );

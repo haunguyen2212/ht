@@ -1,26 +1,19 @@
-import Image from "next/image";
+'use client';
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
-const RelatedPost: React.FC = () => {
+const RelatedPost: React.FC<IPropSinglePost> = ({data}) => {
     return (
-        <div className="my-10 md:my-28">
-            <div className="dark:bg-gray-800 w-full ml-10">
-                <fieldset className="text-xl max-w-md border-2 border-indigo-400 rounded-lg px-4 py-2">
-                    <legend className="px-1 font-semibold dark:text-gray-100">Related Topics</legend>
-                    <div className="flex flex-col gap-2 text-base text-violet-800 dark:text-gray-200">
-                        <a href="#">Administrative Law</a>
-                        <a href="#">Company Law</a>
-                        <a href="#">Judicial Process</a>
-                        <a href="#">Legal Education and RM 2</a>
-                        <a href="#">Civil Procedure Code (CPC)</a>
-                        <a href="#">Human Rights and International Law</a>
-                        <a href="#">Compative Criminal Procdeute (CCP)</a>
-                        <a href="#">Land Laws</a>
-                    </div>
-                </fieldset>
-            </div>
-        </div>
-    )
+        <li className="mb-6 md:md-0 col-span-12 sm:col-span-6 lg:col-span-6">
+            <Image width={0} height={0} sizes="100vw" src={`/${data?.image}`} className="w-full h-44 md:h-60 mb-4 rounded-lg shadow-none transition transition-shadow duration-500 ease-in-out group-hover:shadow-lg" alt="1646792144.jpg" priority />
+            <p className="font-display max-w-sm text-2xl font-bold leading-tight mb-1">
+                <Link href={`/post/${data?.slug}`} className="link-underline link-underline-black text-black dark:text-white">
+                    {data?.title}
+                </Link>
+            </p>
+        </li>
+    );
 }
 
 export default RelatedPost;

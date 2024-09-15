@@ -12,7 +12,7 @@ interface IPropSubmitButton{
     children: ReactNode;
 }
 
-interface IPropFeaturedPost {
+interface IPropSinglePost {
     data: Post;
 }
 

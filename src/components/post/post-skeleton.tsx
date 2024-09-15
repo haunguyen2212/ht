@@ -3,9 +3,9 @@ import ImageIcon from "../icon/image";
 
 const PostSkeleton: React.FC = () => {
     return (
-        <div className="sm:mt-6 lg:mt-8 mt-12">
-            <div className="max-w-3xl mx-auto my-10 md:my-24">
-                <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal dark:bg-gray-900">
+        // <div className="sm:mt-6 lg:mt-8 mt-12">
+        //     <div className="max-w-3xl mx-auto my-10 md:my-24">
+        //         <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal dark:bg-gray-900">
                     <div className="mx-5 md:mx-0 animate-pulse">
                         <div className="h-10 mb-5 max-w-[90%] rounded-full bg-gray-200 dark:bg-gray-700"></div>
                         <div className="flex items-center justify-center w-full h-56 md:h-[27.5rem] my-3 md:my-7 rounded-lg bg-gray-300 dark:bg-gray-700 shadow-none">
@@ -41,9 +41,9 @@ const PostSkeleton: React.FC = () => {
                         </div>
                     </div>
 
-                </div>
-            </div>
-        </div>
+        //         </div>
+        //     </div>
+        // </div>
     );
 }
 

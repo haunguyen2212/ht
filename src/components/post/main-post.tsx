@@ -34,9 +34,9 @@ const MainPost: React.FC<IPropPost> = ({ slug }) => {
     }
 
     return (
-        <div className="sm:mt-6 lg:mt-8 mt-12">
-            <div className="max-w-3xl mx-auto my-10 md:my-16">
-                <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal dark:bg-gray-900">
+        // <div className="sm:mt-6 lg:mt-8 mt-12">
+        //     <div className="max-w-3xl mx-auto my-10 md:my-16">
+        //         <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal dark:bg-gray-900">
                     <div className="mx-5 md:mx-0">
                         <h1 className="text-gray-900 font-bold text-3xl md:text-4xl dark:text-white">{post?.title}</h1>
                         <Image width={0} height={0} sizes="100vw" src={`/${post?.image}`} className="w-full h-56 md:h-[27.5rem] my-3 md:my-7 rounded-lg shadow-none transition transition-shadow duration-500 ease-in-out group-hover:shadow-lg" alt="1646792144.jpg" priority />
@@ -71,9 +71,9 @@ const MainPost: React.FC<IPropPost> = ({ slug }) => {
                             </div>
                         </div>       
                     </div>
-                </div>
-            </div>
-        </div>
+        //         </div>
+        //     </div>
+        // </div>
     );
 }
 
