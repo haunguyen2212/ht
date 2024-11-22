@@ -1,5 +1,6 @@
 import Banner from "@/components/layout/banner";
 import FeaturedList from "@/components/home/featured-list";
+import Stats from "@/components/home/stats";
 
 export default function Home() {
 
@@ -7,6 +8,7 @@ export default function Home() {
     <>
         <Banner />
         <FeaturedList />
+        <Stats />
     </>
   );
 }

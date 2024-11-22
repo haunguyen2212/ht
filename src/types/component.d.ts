@@ -23,3 +23,9 @@ interface IPropUserButton {
 interface IPropPost {
     slug: string;
 }
+
+interface IPropStatsCard {
+    title: string;
+    data: number;
+    hasPlus: boolean;
+}
