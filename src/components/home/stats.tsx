@@ -8,10 +8,10 @@ const Stats: React.FC = () => {
             <div className="bg-indigo-50 dark:bg-indigo-500 pt-12 sm:pt-16">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-5xl text-center">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">Số Liệu Thống Kê Tháng</h2>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">Số Liệu Thống Kê Tháng</h2>
                     </div>
                 </div>
-                <div className="mt-10 bg-white dark:bg-gray-900 pb-12 sm:pb-16">
+                <div className="mt-10 bg-white dark:bg-gray-900 pb-2">
                     <div className="relative">
                         <div className="absolute inset-0 h-1/2 bg-indigo-50 dark:bg-indigo-500"></div>
                         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

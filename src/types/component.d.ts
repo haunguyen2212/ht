@@ -29,3 +29,9 @@ interface IPropStatsCard {
     data: number;
     hasPlus: boolean;
 }
+
+interface IFAQProps {
+    targetId: string;
+    question: string;
+    answer: string;
+}

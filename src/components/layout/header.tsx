@@ -30,7 +30,6 @@ const Header: React.FC = () => {
         };
     }, []);
 
-
     return (
         <nav className="w-full fixed z-50 bg-white border-gray-200 dark:bg-gray-900">
             <div className="flex flex-wrap items-center justify-between mx-auto p-4 xl:py-6 xl:px-16">
