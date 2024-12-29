@@ -1,31 +1,16 @@
 'use client';
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import FeaturedPost from "@/components/home/featured-post";
-import axios from "axios";
 import { API_URL } from "@/utils/config";
 import FeaturedSkeleton from "./featured-skeleton";
 import ArrowRightIcon from "../icon/arrow-right";
+import useSWR from "swr";
+import fetcher from "@/utils/fetcher";
 
 const FeaturedList: React.FC = () => {
 
-    const [featuredPost, setFeaturedPost] = useState<Array<Post>>([]);
-    const [loading, setLoading] = useState<boolean>(true);
-
-    const getData = async () => {
-        try{
-          const res = await axios.get<IList<Post>>(`${API_URL}/featured-post/`);
-          setFeaturedPost(res.data.data);
-          setLoading(false);
-        }
-        catch(error: any){
-          console.log(error);  
-        }
-    }
-
-    useEffect(() => { 
-        getData();
-    }, []);
+    const {data: featuredPost} = useSWR(`${API_URL}/featured-post/`, fetcher)
 
     return (
         <section className="mt-2 md:mt-8 mt-12 w-full mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,12 +26,12 @@ const FeaturedList: React.FC = () => {
               </div>
               <ul className="lg:gap-16 sm:gap-8 grid grid-cols-12 col-span-10 col-start-2 gap-6 mt-4">
                 {
-                    loading 
+                    !featuredPost 
                     ? 
                     <><FeaturedSkeleton /><FeaturedSkeleton /><FeaturedSkeleton /></> 
                     : 
-                    featuredPost?.map(item => (
-                        <FeaturedPost key={item.id} data={item} />
+                    featuredPost.data.map((item: any, index: string) => (
+                        <FeaturedPost key={index} data={item} />
                     ))
                 }
               </ul>

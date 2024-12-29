@@ -18,7 +18,7 @@ const AuthButton: React.FC<IPropUserButton> = (props) => {
 
     if(loading){
         return (
-            <div className="w-8 md:w-36 h-[32px] bg-gray-100 dark:bg-gray-700 ring-4 ring-gray-100 dark:ring-gray-700 rounded-full"></div>
+            <div className="w-8 md:w-32 h-[32px] bg-gray-100 dark:bg-gray-700 ring-4 ring-gray-100 dark:ring-gray-700 rounded-full"></div>
         );
     }
     
