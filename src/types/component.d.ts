@@ -13,7 +13,7 @@ interface IPropSubmitButton{
 }
 
 interface IPropSinglePost {
-    data: Post;
+    post: Post;
 }
 
 interface IPropUserButton {

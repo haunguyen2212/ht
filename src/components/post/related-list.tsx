@@ -27,19 +27,13 @@ const RelatedList: React.FC = () => {
   }, []);
 
     return (
-      <div className="mt-2 w-full mx-auto">
-        <div className="mx-auto max-w-7xl">
-            <div className="flex justify-between font-bold dark:text-white">
-                <span className="text-indigo-600 dark:text-indigo-400">Bài viết liên quan</span>
-            </div>
-            <ul className="lg:gap-16 sm:gap-8 grid grid-cols-12 col-span-10 col-start-2 gap-6 mt-4">
-              {
-                relatedPost?.map(item => (
-                  <RelatedPost key={item.id} data={item} />
-                ))
-              }
-            </ul>
-        </div>
+      <div className="col-span-12 md:col-span-4 p-6 rounded-lg">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Thông tin khác</h3>
+        <div className="space-y-4">
+            {relatedPost?.map((post) => (
+              <RelatedPost key={post.id} post={post} />
+            ))}
+          </div>
       </div>
     )
 }
